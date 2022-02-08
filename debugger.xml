@@ -1,5 +1,7 @@
 <application>
   <component name="DebuggerSettings">
+    <option name="SKIP_SYNTHETIC_METHODS" value="false" />
+    <option name="SKIP_CLASSLOADERS" value="false" />
     <filter>
       <option name="PATTERN" value="com.sun.*" />
       <option name="ENABLED" value="true" />
@@ -96,7 +98,9 @@
     <data-views>
       <option name="showLibraryStackFrames" value="false" />
     </data-views>
-    <general />
+    <general>
+      <scroll-to-center>true</scroll-to-center>
+    </general>
     <debuggers>
       <debugger id="javascript">
         <configuration>
