@@ -1,0 +1,196 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+" ============================ "
+" ====== Basic Settings ====== "
+" ============================ "
+
+""" The Leader Key
+let mapleader=" "
+
+set scrolloff=5
+
+"" edit vimrc
+nnoremap <leader>ve :e ~/.ideavimrc<CR>
+nnoremap <leader>vs :source ~/.ideavimrc<CR>
+
+"" Editing and Reloading the Config
+nnoremap <leader>vr :action IdeaVim.ReloadVimRc.reload<CR>
+
+set NERDTree
+set surround
+set commentary
+set multiple-cursors
+set showcmd
+
+set clipboard+=unnamed
+set clipboard+=ideaput
+
+" basic key mapping
+nnoremap L $
+nnoremap H ^
+nnoremap ; :
+nnoremap ;a :action
+
+vnoremap H ^
+vnoremap L $
+vnoremap ; :
+
+""" The Escape button
+map <C-c> <Esc>
+inoremap kj <esc>
+inoremap jj <esc>
+inoremap jk <esc>
+
+""" Cursor movement in insert mode
+inoremap <c-k> <Up>
+inoremap <c-j> <Down>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-d> <Delete>
+
+""" Row movement in insert mode
+inoremap <a-j> <Esc>:m .+1<CR>==
+inoremap <a-k> <Esc>:m .-2<CR>==
+
+""" Row movement in normal mode
+nnoremap <CR> 0i<CR><Esc>
+nnoremap <a-j> :m .+1<CR>==
+nnoremap <a-k> :m .-2<CR>==
+
+vnoremap < <gv
+vnoremap > >gv
+
+""" 高亮search命中的文本
+set hlsearch
+
+""" 打开增量搜索模式,随着键入即时搜索
+set incsearch
+
+""" 搜索时忽略大小写
+set ignorecase
+
+""" 有一个或以上大写字母时仍大小写敏感
+set smartcase
+
+""" Clear the highlighted search result
+nnoremap <Leader>h :nohlsearch<CR>
+
+" Key bindings for quickly moving between windows
+" h left, l right, k up, j down
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+
+""" Tab operation
+" next tab
+nnoremap <s-h> gT
+" previous tab
+nnoremap <s-l> gt
+
+""" Closing tabs
+nnoremap <leader>cc :action CloseContent<cr>
+nnoremap <leader>ot :action ReopenClosedTab<cr>
+nnoremap <leader>cp :action CloseProject<cr>
+
+""" Save
+nnoremap <leader>w :action SaveAll<CR>
+
+""" Redo
+nnoremap U <C-r>
+
+" Use default map of <c-/> for that.
+nnoremap gcc :action CommentByLineComment<CR>
+nnoremap gbc :action CommentByBlockComment<CR>
+
+" Terminal
+nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
+
+" Errors
+nnoremap <leader>en :action GotoNextError<CR>
+nnoremap <leader>ep :action GotoPreviousError<CR>
+
+" Settings
+nnoremap <leader>ss :action ShowSettings<CR>
+
+" ============================ "
+" ====== 映射到idea快捷键 ====== "
+" ============================ "
+
+" 弹出输入框
+nnoremap <leader>gc :action GotoClass<CR>
+nnoremap <leader>ga :action GotoAction<CR>
+nnoremap <leader>gf :action GotoFile<CR>
+nnoremap <leader>gs :action GotoSymbol<CR>
+nnoremap <leader>gu :action GotoSuperMethod<CR>
+nnoremap <leader>ge :action SearchEverywhere<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gi :action GotoImplementation<CR>
+
+nnoremap <leader>oi :action OptimizeImports<CR>
+nnoremap <leader>th :action TypeHierarchy<CR>
+nnoremap <leader>fs :action FileStructurePopup<CR>
+
+" Run and Debug
+nnoremap <Leader>dbs :action ViewBreakpoints<CR>
+nnoremap <leader>de :action EvaluateExpression<CR>
+nnoremap <leader>dt :action ToggleLineBreakpoint<CR>
+nnoremap <leader>dd :action Debug<CR>
+nnoremap <leader>dC :action ChooseDebugConfiguration<CR>
+
+nnoremap <leader>dc :action RunToCursor<CR>
+nnoremap <leader>di :action StepInto<CR>
+nnoremap <leader>do :action StepOver<CR>
+nnoremap <leader>du :action StepOut<CR>
+nnoremap <leader>ds :action Stop<CR>
+
+nnoremap <leader>fc :action ForceRunToCursor<CR>
+nnoremap <leader>fi :action ForceStepInto<CR>
+nnoremap <leader>fo :action ForceStepOver<CR>
+
+nnoremap <leader>dm :action EditorPopupMenuDebug<CR>
+
+nnoremap <leader>rr :action Run<CR>
+nnoremap <leader>rc :action ChooseRunConfiguration<CR>
+
+" ReformatCode
+nnoremap <leader>l :action ReformatCode<CR>
+
+" New File
+nnoremap <leader>np :action NewProject<CR>
+nnoremap <leader>nm :action NewModule<CR>
+nnoremap <leader>nd :action NewDir<CR>
+nnoremap <leader>nf :action NewFile<CR>
+nnoremap <leader>nc :action NewClass<CR>
+
+" Generate
+nnoremap <leader>gn :action Generate<CR>
+
+" find&show 使用
+nnoremap <leader>fu :action FindUsages<CR>
+nnoremap <leader>su :action ShowUsages<CR>
+
+" Rename
+nnoremap <leader>re :action RenameElement<CR>
+nnoremap <leader>rf :action RenameFile<CR>
+
+""" ChangeSignature
+nnoremap <leader>cs :action ChangeSignature<CR>
+nnoremap <leader>cv :action ChangeView<CR>
+
+""" Extract something
+nnoremap <leader>ec :action ExtractClass<CR>
+nnoremap <leader>ei :action ExtractInterface<CR>
+nnoremap <leader>em :action ExtractMethod<CR>
+nnoremap <leader>eu :action ExtractModule<CR>
+nnoremap <leader>ep :action ExtractSuperclass<CR>
+nnoremap <leader>ev :action IntroduceVariable<CR>
+
+" Go forward && back
+nnoremap <a-f> :action Forward<CR>
+nnoremap <a-b> :action Back<CR>
