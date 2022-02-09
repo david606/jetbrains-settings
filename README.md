@@ -6,5 +6,7 @@
 ### [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token)
 通过命令行或 API 创建个人访问令牌以代替密码。(访问当前 repository 使用，ssh 没有研究如何设置 )
 
+``` 
 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
+```
 
